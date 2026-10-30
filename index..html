@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>De Snail Republic – Continental Kitchen</title>
+<style>
+:root{--bg:#0f1a14;--surface:#16251c;--text:#f6f1e4;--muted:#b9c2b4;--accent:#d9a441;--wa:#1faa59;--border:#25392d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f8f4ea;--surface:#fff;--text:#1b2a21;--muted:#5d6b61;--accent:#b07d1c;--border:#e6dfcc}}
+:root[data-theme="dark"]{--bg:#0f1a14;--surface:#16251c;--text:#f6f1e4;--muted:#b9c2b4;--accent:#d9a441;--border:#25392d}
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55;padding-bottom:84px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:20px;color:var(--accent);letter-spacing:.5px}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#14201a;font-weight:700;padding:13px 24px;border-radius:999px}
+.btn.wa{background:var(--wa);color:#fff}
+.btn.ghost{background:transparent;color:var(--text);border:2px solid var(--border)}
+.hero{text-align:center;padding:60px 0 44px}
+.tag{color:var(--accent);font-weight:700;letter-spacing:3px;font-size:12px;text-transform:uppercase}
+.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(36px,8vw,66px);line-height:1.08;margin:14px 0 18px}
+.hero h1 span{color:var(--accent)}
+.hero p{color:var(--muted);max-width:520px;margin:0 auto 30px;font-size:18px}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+h2{font-family:Georgia,"Times New Roman",serif;text-align:center;font-size:clamp(26px,4vw,36px);margin:24px 0 8px}
+.sub{text-align:center;color:var(--muted);margin-bottom:26px}
+.menu{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-bottom:52px}
+.item{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:6px}
+.item .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.item .icon{font-size:36px}
+.item h3{font-size:18px}
+.item p{color:var(--muted);font-size:14px;flex:1}
+.photo{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;margin-bottom:8px}
+.price{color:var(--accent);font-weight:800;font-size:18px;margin:6px 0 10px}
+.badge{display:inline-block;background:var(--accent);color:#14201a;font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;margin-bottom:4px;align-self:flex-start}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:52px}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px}
+.step .n{color:var(--accent);font-weight:800;font-size:14px;margin-bottom:6px}
+.step h3{font-size:17px;margin-bottom:4px}
+.step p{color:var(--muted);font-size:15px}
+.info{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 24px;text-align:center;margin-bottom:52px}
+.info p{color:var(--muted)}
+.info b{color:var(--text)}
+.band{background:var(--accent);color:#14201a;border-radius:20px;padding:40px 24px;text-align:center;margin-bottom:48px}
+.band h2{margin:0 0 8px;color:#14201a}
+.band p{margin-bottom:20px}
+.band .btn{background:#14201a;color:#fff}
+footer{border-top:1px solid var(--border);padding:22px 0;color:var(--muted);font-size:14px;text-align:center}
+.sticky{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:10;box-shadow:0 6px 24px rgba(0,0,0,.35)}
+@media (min-width:720px){.sticky{display:none}body{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><div class="logo">De Snail Republic</div><a class="btn wa" id="topOrder" href="#">Order on WhatsApp</a></nav>
+<section class="hero">
+<div class="tag">Continental Kitchen · Ebonyi</div>
+<h1>Slow-cooked taste.<br><span>Served fast.</span></h1>
+<p>Peppered snails, grills, pasta and more, made fresh and delivered hot to your door.</p>
+<div class="cta"><a class="btn wa" id="heroOrder" href="#">Order on WhatsApp</a><a class="btn ghost" href="#menu">See menu</a></div>
+</section>
+<h2 id="menu">The menu</h2>
+<p class="sub">Tap any dish to order it on WhatsApp.</p>
+<section class="menu" id="grid"></section>
+<h2>How to order</h2>
+<p class="sub">Three quick steps.</p>
+<section class="steps">
+<div class="step"><div class="n">01</div><h3>Pick your dish</h3><p>Tap the order button on anything you like.</p></div>
+<div class="step"><div class="n">02</div><h3>Send on WhatsApp</h3><p>Your order message is already typed. Just hit send.</p></div>
+<div class="step"><div class="n">03</div><h3>We cook, you enjoy</h3><p>We confirm, cook fresh, and deliver hot.</p></div>
+</section>
+<section class="info">
+<p><b>Open daily:</b> 11:00 AM to 10:00 PM</p>
+<p><b>Delivery:</b> Within Abakaliki </p>
+</section>
+<section class="band">
+<h2>Hungry? Order in 2 minutes.</h2>
+<p>Send your order on WhatsApp and we’ll confirm right away.</p>
+<a class="btn" id="bandOrder" href="#">Order on WhatsApp</a>
+</section>
+</div>
+<footer>© 2026 De Snail Republic. All rights reserved.</footer>
+<a class="btn wa sticky" id="stickyOrder" href="#">Order on WhatsApp</a>
+<script>
+var PHONE="234 815 718 2946";
+var dishes=[
+{icon:"🐌",img:"snail.jpg",name:"Peppered Snails",desc:"Tender snails tossed in a rich, spicy pepper sauce.",price:8500,badge:"Signature"},
+{icon:"🍌",img:"plantainfish.jpg",name:"Plantain & Fish",desc:"Golden fried plantain with spiced, crispy fried fish.",price:10000},
+{icon:"🍚",img:"friedrice.jpg",name:"Fried Rice",desc:"Colourful rice stir-fried with vegetables, liver and spices.",price:8000},
+{icon:"🍓",img:"fruitsalad.jpg",name:"Fruit Salad",desc:"Fresh seasonal fruits, chilled and lightly sweetened.",price:5000},
+{icon:"🍲",img:"peppersoup.jpg",name:"Pepper Soup (Assorted)",desc:"Hot, spicy broth with assorted meats and aromatic herbs.",price:11000},
+{icon:"🍛",img:"nativerice.jpg",name:"Native Rice",desc:"Palm-oil rice cooked with smoked fish, crayfish and peppers.",price:7000},
+{icon:"🥬",img:"efoririro.jpg",name:"Efo Riro",desc:"Rich spinach stew with assorted meat, fish and locust beans.",price:12000}
+];
+function link(text){return"https://wa.me/"+PHONE+"?text="+encodeURIComponent(text)}
+function naira(n){return"₦"+n.toLocaleString("en-NG")}
+var grid=document.getElementById("grid");
+dishes.forEach(function(d){
+var el=document.createElement("div");
+el.className="item";
+var pic=d.img?'<img class="photo" src="'+d.img+'" alt="'+d.name+'">':"";
+var badge=d.badge?'<span class="badge">'+d.badge+'</span>':"";
+el.innerHTML=pic+badge+'<div class="top"><h3>'+d.name+'</h3></div><p>'+d.desc+'</p><div class="price">'+naira(d.price)+'</div><a class="btn wa" target="_blank" rel="noopener" href="'+link("Hi De Snail Republic, I want to order the "+d.name+" ("+naira(d.price)+")")+'">Order on WhatsApp</a>';
+grid.appendChild(el);
+});
+var general=link("Hi De Snail Republic, I’d like to place an order.");
+["topOrder","heroOrder","bandOrder","stickyOrder"].forEach(function(id){document.getElementById(id).href=general});
+</script>
+</body>
+</html>
